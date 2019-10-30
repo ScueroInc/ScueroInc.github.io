@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/ScueroInc/css/estiloboca.css">
+</head>
+<body>
+        <div id="despertador">
+                <button id="stop">SHO TE ODIO BOCA</button>
+                <audio src="bocayoteamo.mp3" controls autoplay="autoplay"  loop="true" type="mp3"> </audio>
+               
+                
+        </div>
+
+            <script>
+            window.addEventListener("load",function(){
+
+	document.getElementById("stop").addEventListener("click",callarPajaros);			
+});
+
+
+
+function callarPajaros(){
+	var audio = document.getElementsByTagName("audio");
+
+	if (audio.length > 0){
+		audio[0].parentNode.removeChild(audio[0]);
+		document.getElementById("play").addEventListener("click",sonarPajaros);
+	}
+}
+            </script>
+     
+   
+</body>
+</html>

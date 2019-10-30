@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Como crear un BD en SQL</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+	
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/sqlwikistyle2.css" />
+			<link rel="stylesheet" href="css/skel.css" />
+		</noscript>
+	
+	</head>
+	<body>
+
+
+</div>
+
+		
+		<!-- Header Wrapper -->
+			<div class="wrapper style1">
+			
+				<!-- Header -->
+					<div id="header">
+						<div class="container">
+								
+							<!-- Logo -->
+								<h1><a href="#" id="logo">ScueroInc</a></h1>
+							
+							<!-- Nav -->
+								<nav id="nav">
+									<ul>
+										<li class="active"><a href="index.html">BOCA</a></li>
+										
+									</ul>
+								</nav>
+						</div>
+					</div>
+			</div>
+		
+		<!-- Main -->
+			<div id="main" class="wrapper style4">
+				<div class="container">
+					<div class="row">
+
+						<!-- Sidebar -->
+						<div id="sidebar" class="4u">
+							<section>
+								<header class="major">
+									<h2>Tutoriales</h2>
+								</header>									
+								<ul class="default">
+									<li><a href="#">Como matar a un mamut con un cortauñas</a></li>
+									<li><a href="#">Todo lo que necesitas para sobrevivir un ataque zombie</a></li>
+									<li><a href="#">Como ser un caviar y salirte con la tuya siempre</a></li>
+								
+								</ul>
+							</section>
+							<section>
+								<header class="major">
+									<h2>Articulos de interés</h2>
+								</header>
+								<ul class="default">
+									<li><a href="#">Aprende a tirar ñapis en 5 minutos</a></li>
+									<li><a href="#">Qué es el sexo,identidad y muchas cosas más?</a></li>
+									<li><a href="#">DIOS es el gato de Schrödinger</a></li>
+							
+								</ul>
+							</section>
+						</div>
+
+						<!-- Content -->
+						<div id="content" class="8u skel-cell-important">
+							<section>
+								<header class="major">
+									<h2 style="line-height: 1.2;">Comandos para poder realizar <br>
+										
+										acciones en una base de datos 
+										<br> en SQL Server</h2>
+									<span class="byline">Por Gonzalo Escudero Perla</span>
+								</header>
+								<div>
+									<h5>Crear una base de datos</h5>
+									<p>
+										<ol>
+											<li>Crearemos una base de datos que tenga dos tablas y una referencia, en este caso tenemos jugador y equipo</li>
+											<li>Ahora abriremos el command prompt para poder inicializar las tablas</li>
+											<li></li>
+											<li>CREATE DATABASE TestData  <br>
+												GO </li>
+											<li>USE TestData <br> 
+													GO  </li>
+											<li>
+													CREATE TABLE Equipo (
+														Liga int  NOT NULL,
+														IdEquipo int  NOT NULL,
+														IdEstadio int  NOT NULL,
+														CONSTRAINT Equipo_pk PRIMARY KEY  (IdEquipo)
+													);
+											</li>
+											<li>
+													CREATE TABLE Jugador (
+														IdJugador int  NOT NULL,
+														Edad int  NOT NULL,
+														IdEquipo int  NOT NULL,
+														CONSTRAINT Jugador_pk PRIMARY KEY  (IdJugador)
+													);
+													
+											</li>
+												
+										</ol>
+									</p>
+								</div>
+								<div>
+									<h5>Como meter y extraer datos de una base de datos</h5>
+									<p>
+										<ol>
+											<li>
+													INSERT dbo.Equipo (IdEquipo, IdEstadio, Liga)  <br>
+													VALUES (1, 2, 'El Libertador')  <br>
+												GO   
+											</li>
+
+											<li>
+													UPDATE dbo.Equipo  <br>
+													SET Liga = 'Libertadores'  <br>
+													WHERE IdEquipo = 1  <br>
+												GO  
+											</li>
+											<li>
+													SELECT IdEquipo, IdEstadio, Liga <br>  
+													FROM dbo.Equipo <br>
+												GO 
+											</li>
+										</ol>
+									</p>
+								</div>
+
+								<div>
+									<h5>Como extraer un backup de una base de datos</h5>
+									<h6>Usando Transact-SQL</h6>
+									<p>USE SQLTestDB; <br>
+											GO <br>
+											BACKUP DATABASE SQLTestDB<br>
+											TO DISK = 'c:\tmp\SQLTestDB.bak'<br>
+											   WITH FORMAT,<br>
+												  MEDIANAME = 'SQLServerBackups',<br>
+												  NAME = 'Full Backup of SQLTestDB';<br>
+											GO</p>
+									<h6>Esto es solo para linux</h6>
+									<p>
+											sqlcmd -S localhost -U SA -Q "BACKUP DATABASE [demodb] TO DISK = N'/var/opt/mssql/data/demodb.bak' WITH NOFORMAT, NOINIT, NAME = 'demodb-full', SKIP, NOREWIND, NOUNLOAD, STATS = 10"
+									</p>
+								
+									<h6>Para Windows Server 2012</h6>
+									<p>
+										<ol>
+											<li>Para este medio lo haremos a traves del interfaz gráfico:</li>
+											<br>
+										<li><a href="#" class="image"><img src="images/1.png" alt=""></a></li>
+										</ol>
+									</p>
+									
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+
+
+
+	</body>
+</html>
